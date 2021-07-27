@@ -1,4 +1,4 @@
-import { useParams, useRouteMatch, Route, Switch } from 'react-router-dom'
+import { useRouteMatch, Route, Switch } from 'react-router-dom'
 
 import {
   CardContainer,

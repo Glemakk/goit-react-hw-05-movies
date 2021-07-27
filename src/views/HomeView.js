@@ -1,5 +1,5 @@
 // import { NavLink } from 'react-router-dom'
-import { useParams, useRouteMatch } from 'react-router-dom'
+// import { useParams, useRouteMatch } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import * as MovieBundleApi from '../services/movieBundle-api'
 import TrandingList from '../components/TrandingList/TrandingList'

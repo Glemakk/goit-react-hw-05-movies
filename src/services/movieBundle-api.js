@@ -25,19 +25,46 @@ const API_KEY = '0558fb418099b1d6ef291e53504aa0aa'
 
 //------------Фетч по трендам
 export const fetchTrending = async () => {
-  const { data } = await axios.get(`/trending/all/day?api_key=${API_KEY}`)
-  const trends = await data.results
-  // console.log(trends)
-  return trends
+  try {
+    const { data } = await axios.get(`/trending/movie/day?api_key=${API_KEY}`)
+    const trends = await data.results
+
+    return trends
+  } catch (error) {
+    console.error('Error in fetchTrending', error)
+  }
 }
 
 export const fetchMovieById = async ({ movieId }) => {
   const response = await axios.get(
     `/movie/${movieId}?api_key=${API_KEY}&language=en-US`,
   )
+  console.log('response', response)
   const movieDetails = await response.data
-  // console.log(movieDetails)
+  console.log(movieDetails)
   return movieDetails
+  //=============
+
+  //=========
+  // const movieDetails = await ((response) => {
+  //   if (response.ok) {
+  //     return response.json()
+  //   }
+  //   throw new Error(response.statusText)
+  // })
+  // .then(data => console.log(data))
+  //============
+
+  // try {
+  //       const response = await axios.get(
+  //     `/movie/${movieId}?api_key=${API_KEY}&language=en-US`,
+  //   )
+  //   const data = response => (if (response.status === 200) {
+
+  //   }
+  //     } catch (error) {
+  //       console.log('Ошибка')
+  //     }
 }
 
 export const fetchTvById = async ({ movieId }) => {
