@@ -8,14 +8,15 @@ import {
 } from './MovieCard.styled'
 
 import Cast from '../Cast'
-import Rewievs from '../Rewievs'
+import Reviews from '../Reviews'
 
 const MovieCard = ({ movie }) => {
   const { path, url } = useRouteMatch()
   //   console.log('url >>', url)
   //   console.log('path >>', path)
   const score = movie.vote_average * 10
-  //   console.log(score)
+  console.log('movie >>', movie)
+  // console.log('score >>', score)
   return (
     <>
       <CardContainer>
@@ -30,17 +31,18 @@ const MovieCard = ({ movie }) => {
           <h3>Overview:</h3>
           <p>{movie.overview}</p>
           <h3>Genres</h3>
-          <ul></ul>
-          {movie.genres.map(({ id, name }) => (
-            <li key={id}>{name}</li>
-          ))}
+          <ul>
+            {movie.genres.map(({ id, name }) => (
+              <li key={id}>{name}</li>
+            ))}
+          </ul>
         </Description>
       </CardContainer>
       <AdditionalInfo>
         <h2>Additional iformation</h2>
         <ul>
           <AdditionalLink to={`${url}/cast`}>Cast</AdditionalLink>
-          <AdditionalLink to={`${url}/rewievs`}>Rewievs</AdditionalLink>
+          <AdditionalLink to={`${url}/reviews`}>Reviews</AdditionalLink>
         </ul>
       </AdditionalInfo>
       <hr />
@@ -48,8 +50,8 @@ const MovieCard = ({ movie }) => {
         <Route path={`${path}/cast`}>
           <Cast movieId={movie.id} />
         </Route>
-        <Route path={`${path}/rewievs`}>
-          <Rewievs movieId={movie.id} />
+        <Route path={`${path}/reviews`}>
+          <Reviews movieId={movie.id} />
         </Route>
       </Switch>
     </>

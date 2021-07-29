@@ -1,7 +1,7 @@
 import { Link, useLocation } from 'react-router-dom'
-import { List } from './TrandingList.styled'
+import { List, ItemImg, Item } from './TrandingList.styled'
 
-const TrandingList = ({ trends, url = 'movies' }) => {
+const TrandingList = ({ movies, url = 'movies' }) => {
   // useRouteMatch() Это путь и он указывает "/", поэтому в пути to={`${match.url}movies/${trend.id}`}
   //   const match = useRouteMatch()
   //  console.log('match >>', match)
@@ -12,11 +12,10 @@ const TrandingList = ({ trends, url = 'movies' }) => {
 
   return (
     <>
-      <h1>Popular movie today</h1>
       <List>
-        {trends &&
-          trends.map((trend) => (
-            <li key={trend.id}>
+        {movies &&
+          movies.map((trend) => (
+            <Item key={trend.id}>
               <Link
                 to={{
                   //{`/${url}/${trend.id}`}
@@ -24,13 +23,13 @@ const TrandingList = ({ trends, url = 'movies' }) => {
                   state: { from: location },
                 }}
               >
-                <img
+                <ItemImg
                   src={`https://image.tmdb.org/t/p/w500/t/p/w300/${trend.poster_path}`}
                   alt=""
-                ></img>
+                ></ItemImg>
                 <p>{trend.name || trend.title}</p>
               </Link>
-            </li>
+            </Item>
           ))}
       </List>
     </>

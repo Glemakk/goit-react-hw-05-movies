@@ -23,7 +23,12 @@ const HomeView = () => {
     setTrends(movies)
   }
 
-  return <TrandingList trends={trends} />
+  return (
+    <>
+      <h1>Popular movie today</h1>
+      <TrandingList movies={trends} />
+    </>
+  )
 }
 // console.log(HomeView)
 export default HomeView

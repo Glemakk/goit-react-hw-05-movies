@@ -39,7 +39,7 @@ export const fetchMovieById = async ({ movieId }) => {
   const response = await axios.get(
     `/movie/${movieId}?api_key=${API_KEY}&language=en-US`,
   )
-  console.log('response', response)
+  console.log('response ById >>', response.data)
   const movieDetails = await response.data
   console.log(movieDetails)
   return movieDetails
@@ -72,7 +72,7 @@ export const fetchTvById = async ({ movieId }) => {
     `/tv/${movieId}?api_key=${API_KEY}&language=en-US`,
   )
   console.log(response)
-  const tvDetails = await response.data
+  const tvDetails = await response.data.genres
   console.log(tvDetails)
   return tvDetails
   // console.log(tvDetails)
@@ -84,14 +84,20 @@ export const fetchTvById = async ({ movieId }) => {
 //   return movieId ? movieFetch : tvFetch
 // }
 
-// export const fetchMovieSearch = async () => {
-//   const response = axios.get(
-//     `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&page=1&include_adult=false`,
-//   )
-//   const movieSearch = await response
-//   console.log(movieSearch)
-//   return movieSearch
-// }
+export const fetchMovieSearch = async (searchQuery, currentPage) => {
+  try {
+    const response = await axios.get(
+      `/search/movie?api_key=${API_KEY}&query=${searchQuery}&page=${currentPage}&language=en-US`,
+    )
+    // const state = await response.data.results
+    const movieSearch = await response.data.results
+    console.log('fetchSearch >>', movieSearch)
+    return movieSearch
+  } catch (error) {
+    console.log('Problem with fetchMovieSearch')
+  }
+}
+console.log(fetchMovieSearch('batman', 1))
 
 // export const fetchTrending = async () => {
 //   const response = await fetch(

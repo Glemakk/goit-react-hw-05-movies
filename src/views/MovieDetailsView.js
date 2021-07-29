@@ -26,7 +26,6 @@ const MovieDetailsView = () => {
     //history.push(location.state.from)
     //return
     // } return history.push('/')
-    // Сейчас
     history.push(location?.state?.from ?? '/')
   }
 
