@@ -39,9 +39,9 @@ export const fetchMovieById = async ({ movieId }) => {
   const response = await axios.get(
     `/movie/${movieId}?api_key=${API_KEY}&language=en-US`,
   )
-  console.log('response ById >>', response.data)
+  // console.log('response ById >>', response.data)
   const movieDetails = await response.data
-  console.log(movieDetails)
+  // console.log(movieDetails)
   return movieDetails
   //=============
 
@@ -71,9 +71,9 @@ export const fetchTvById = async ({ movieId }) => {
   const response = await axios.get(
     `/tv/${movieId}?api_key=${API_KEY}&language=en-US`,
   )
-  console.log(response)
+  // console.log(response)
   const tvDetails = await response.data.genres
-  console.log(tvDetails)
+  // console.log(tvDetails)
   return tvDetails
   // console.log(tvDetails)
 }
@@ -91,13 +91,13 @@ export const fetchMovieSearch = async (searchQuery, currentPage) => {
     )
     // const state = await response.data.results
     const movieSearch = await response.data.results
-    console.log('fetchSearch >>', movieSearch)
+    // console.log('fetchSearch >>', movieSearch)
     return movieSearch
   } catch (error) {
-    console.log('Problem with fetchMovieSearch')
+    // console.log('Problem with fetchMovieSearch')
   }
 }
-console.log(fetchMovieSearch('batman', 1))
+// console.log(fetchMovieSearch('batman', 1))
 
 // export const fetchTrending = async () => {
 //   const response = await fetch(

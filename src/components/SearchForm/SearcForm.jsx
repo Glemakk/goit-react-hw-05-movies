@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
+import { useLocation, useHistory } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import {
   SearchContainer,
@@ -9,14 +10,41 @@ import {
 } from './SearchForm.styled'
 
 const SearchForm = ({ onSubmit }) => {
-  // console.log(onSubmit.length)
+  // const location = useLocation()
+  // const history = useHistory()
+  // const routerState = useRef(null)
+  // console.log('location.search в searchForm>>', location.search)
+  // console.log('history в searchForm', history)
+  // console.log('routerState', routerState)
+
   const [query, setQuery] = useState('')
+
+  // useEffect(() => {
+  //   if (!routerState.current) {
+  //     return
+  //   }
+  //   routerState.current = location.state
+  // }, [])
 
   const handleChange = ({ target }) => {
     const value = target.value
+    // console.log('value', value)
 
     setQuery(value.toLowerCase())
   }
+
+  // const sortQuery = new URLSearchParams(location.search).get('queryTitle')
+  // console.log('sortQuery >>', sortQuery)
+
+  // const onSearchMovieState = (e) => {
+  //   const value = e.target.value
+  //   // console.log('location in onSearchMovieState', location)
+  //   // history.push({
+  //   //   ...location,
+  //   //   search: `queryTitle=${query}`,
+  //   // })
+  //   setQuery(value.toLowerCase())
+  // }
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -26,12 +54,13 @@ const SearchForm = ({ onSubmit }) => {
       return
     }
     onSubmit(query)
-    clearForm()
-  }
-
-  const clearForm = () => {
+    // console.log('onSubmit(query)', onSubmit(query))
     setQuery('')
   }
+
+  // const clearForm = () => {
+  //   setQuery('')
+  // }
 
   return (
     <SearchContainer>

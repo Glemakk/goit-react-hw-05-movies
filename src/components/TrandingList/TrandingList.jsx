@@ -8,7 +8,7 @@ const TrandingList = ({ movies, url = 'movies' }) => {
   // Вместо этого передаем url = 'movies' и нам необходимо будет поменять только один раз значение url
 
   const location = useLocation()
-  console.log('location TrandingList >>', location)
+  // console.log('location TrandingList >>', location)
 
   return (
     <>

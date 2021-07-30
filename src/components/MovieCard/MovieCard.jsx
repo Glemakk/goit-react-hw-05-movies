@@ -1,14 +1,23 @@
+import { lazy, Suspense } from 'react'
 import { useRouteMatch, Route, Switch } from 'react-router-dom'
-
 import {
   CardContainer,
   Description,
   AdditionalInfo,
   AdditionalLink,
 } from './MovieCard.styled'
+import Loader from '../Loader'
 
-import Cast from '../Cast'
-import Reviews from '../Reviews'
+// import Cast from '../Cast'
+// import Reviews from '../Reviews'
+
+const Cast = lazy(
+  async () => await import('../Cast' /*webpackChunkName: "cast-component" */),
+)
+const Reviews = lazy(
+  async () =>
+    await import('../Reviews' /*webpackChunkName: "reviews-component" */),
+)
 
 const MovieCard = ({ movie }) => {
   const { path, url } = useRouteMatch()
@@ -46,14 +55,16 @@ const MovieCard = ({ movie }) => {
         </ul>
       </AdditionalInfo>
       <hr />
-      <Switch>
-        <Route path={`${path}/cast`}>
-          <Cast movieId={movie.id} />
-        </Route>
-        <Route path={`${path}/reviews`}>
-          <Reviews movieId={movie.id} />
-        </Route>
-      </Switch>
+      <Suspense fallback={<Loader />}>
+        <Switch>
+          <Route path={`${path}/cast`}>
+            <Cast movieId={movie.id} />
+          </Route>
+          <Route path={`${path}/reviews`}>
+            <Reviews movieId={movie.id} />
+          </Route>
+        </Switch>
+      </Suspense>
     </>
   )
 }

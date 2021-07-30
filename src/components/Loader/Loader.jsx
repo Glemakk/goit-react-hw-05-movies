@@ -6,7 +6,7 @@ function Loader() {
   return (
     <ReactLoader>
       <SpinnerLoader
-        type="MutatingDots"
+        type="Bars"
         color="#00BFFF"
         height={100}
         width={100}
