@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { LoadMoreButton } from './LoadMoreButton.styled'
+import { ButtonWrapper, LoadMoreButton } from './LoadMoreButton.styled'
 import PropTypes from 'prop-types'
 
 function Button({ text, onClick, page, response }) {
@@ -13,9 +13,11 @@ function Button({ text, onClick, page, response }) {
   }, [page, response])
 
   return (
-    <LoadMoreButton type="button" onClick={onClick}>
-      {text}
-    </LoadMoreButton>
+    <ButtonWrapper>
+      <LoadMoreButton type="button" onClick={onClick}>
+        {text}
+      </LoadMoreButton>
+    </ButtonWrapper>
   )
 }
 

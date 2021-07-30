@@ -25,7 +25,6 @@ const HomeView = () => {
 
   return (
     <>
-      <h1>Popular movie today</h1>
       <TrandingList movies={trends} />
     </>
   )

@@ -1,5 +1,5 @@
-import { useState, useRef, useEffect } from 'react'
-import { useLocation, useHistory } from 'react-router-dom'
+import { useState } from 'react'
+// import { useLocation, useHistory } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import {
   SearchContainer,

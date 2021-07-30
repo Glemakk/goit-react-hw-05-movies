@@ -24,7 +24,7 @@ const MovieCard = ({ movie }) => {
   //   console.log('url >>', url)
   //   console.log('path >>', path)
   const score = movie.vote_average * 10
-  console.log('movie >>', movie)
+  // console.log('movie >>', movie)
   // console.log('score >>', score)
   return (
     <>

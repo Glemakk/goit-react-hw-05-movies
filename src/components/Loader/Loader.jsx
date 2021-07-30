@@ -7,7 +7,7 @@ function Loader() {
     <ReactLoader>
       <SpinnerLoader
         type="Bars"
-        color="#00BFFF"
+        color="#cc0909"
         height={100}
         width={100}
         timeout={3000}

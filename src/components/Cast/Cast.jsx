@@ -16,11 +16,11 @@ const Cast = ({ movieId }) => {
   const [movie, setMovie] = useState(null)
 
   useEffect(() => {
-    console.log('movie in useEffect >>', movie)
-    console.log(movieId)
+    // console.log('movie in useEffect >>', movie)
+    // console.log(movieId)
 
     fetchID()
-    console.log('movie in useEffect 2 >>', movie)
+    // console.log('movie in useEffect 2 >>', movie)
     return () => {
       setMovie(null)
     }
@@ -30,7 +30,7 @@ const Cast = ({ movieId }) => {
   // const x = () => {
   //   return movie.cast.map(({ id, name }) => <li key={id}>{name}</li>)
   // }
-  console.log(movie)
+  // console.log(movie)
   const fetchID = async () => {
     try {
       const movieById = await fetchCastsById({ movieId })

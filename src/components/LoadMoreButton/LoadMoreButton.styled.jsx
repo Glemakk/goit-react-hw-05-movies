@@ -3,7 +3,8 @@ import styled from '@emotion/styled'
 export const LoadMoreButton = styled.button`
   padding: 8px 16px;
   border-radius: 2px;
-  background-color: #3f51b5;
+  background-color: #cc0909;
+  margin: 20px auto;
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
   text-align: center;
   display: inline-block;
@@ -23,4 +24,8 @@ export const LoadMoreButton = styled.button`
   &:hover {
     background-color: #303f9f;
   }
+`
+export const ButtonWrapper = styled.div`
+  display: flex;
+  justify-content: center;
 `

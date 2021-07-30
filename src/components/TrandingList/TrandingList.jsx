@@ -1,5 +1,6 @@
 import { Link, useLocation } from 'react-router-dom'
 import { List, ItemImg, Item } from './TrandingList.styled'
+import Container from '../Container'
 
 const TrandingList = ({ movies, url = 'movies' }) => {
   // useRouteMatch() Это путь и он указывает "/", поэтому в пути to={`${match.url}movies/${trend.id}`}
@@ -11,7 +12,7 @@ const TrandingList = ({ movies, url = 'movies' }) => {
   // console.log('location TrandingList >>', location)
 
   return (
-    <>
+    <Container>
       <List>
         {movies &&
           movies.map((trend) => (
@@ -32,7 +33,7 @@ const TrandingList = ({ movies, url = 'movies' }) => {
             </Item>
           ))}
       </List>
-    </>
+    </Container>
   )
 }
 
