@@ -1,5 +1,5 @@
 import { lazy, Suspense } from 'react'
-import { Switch, Route } from 'react-router-dom'
+import { Switch, Route, Redirect } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import AppBar from './components/AppBar'
@@ -24,10 +24,6 @@ const MovieDetailsView = lazy(
       './views/MovieDetailsView' /*webpackChunkName: "movie-details-view"*/
     ),
 )
-const NotFoundView = lazy(
-  async () =>
-    await import('./views/NotFoundView' /*webpackChunkName: "not-found-view"*/),
-)
 
 const App = () => {
   return (
@@ -47,9 +43,8 @@ const App = () => {
             <MovieDetailsView />
           </Route>
 
-          <Route>
-            <NotFoundView />
-          </Route>
+          <Redirect to="/" />
+          <Route></Route>
         </Switch>
       </Suspense>
       <ToastContainer position="top-center" autoClose={2000} />
