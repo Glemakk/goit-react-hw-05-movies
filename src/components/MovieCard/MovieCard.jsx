@@ -1,5 +1,5 @@
 import { lazy, Suspense } from 'react'
-import { useRouteMatch, Route, Switch } from 'react-router-dom'
+import { useRouteMatch, useLocation, Route, Switch } from 'react-router-dom'
 import {
   CardContainer,
   Description,
@@ -21,6 +21,11 @@ const Reviews = lazy(
 
 const MovieCard = ({ movie }) => {
   const { path, url } = useRouteMatch()
+  const match = useRouteMatch()
+  console.log('match', match)
+  console.log('url', url)
+  const location = useLocation()
+  console.log(location)
   //   console.log('url >>', url)
   //   console.log('path >>', path)
   const score = movie.vote_average * 10
@@ -50,8 +55,28 @@ const MovieCard = ({ movie }) => {
       <AdditionalInfo>
         <h2>Additional iformation</h2>
         <ul>
-          <AdditionalLink to={`${url}/cast`}>Cast</AdditionalLink>
-          <AdditionalLink to={`${url}/reviews`}>Reviews</AdditionalLink>
+          <AdditionalLink
+            to={{
+              pathname: `${url}/cast`,
+              state: {
+                from: location?.state?.from ?? `${url}`,
+                // label: 'Back to search',
+              },
+            }}
+          >
+            Cast
+          </AdditionalLink>
+          <AdditionalLink
+            to={{
+              pathname: `${url}/reviews`,
+              state: {
+                from: location?.state?.from ?? `${url}`,
+                // label: 'Back to search',
+              },
+            }}
+          >
+            Reviews
+          </AdditionalLink>
         </ul>
       </AdditionalInfo>
       <hr />

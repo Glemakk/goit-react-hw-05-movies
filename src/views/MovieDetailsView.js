@@ -9,7 +9,6 @@ const MovieDetailsView = () => {
   const { movieId } = useParams()
   const [movie, setMovie] = useState(null)
   const location = useLocation()
-  console.log('location MovieDetailsView >>', location)
 
   useEffect(() => {
     fetchID()
@@ -26,7 +25,7 @@ const MovieDetailsView = () => {
     //history.push(location.state.from)
     //return
     // } return history.push('/')
-    history.push(location?.state?.from ?? '/')
+    history.push(location?.state?.from?.location ?? '/')
   }
 
   const fetchID = async () => {
@@ -58,7 +57,7 @@ const MovieDetailsView = () => {
       <h1>Movie Details {movieId}</h1>
       {movie && (
         <button type="button" onClick={onGoBack}>
-          Go Back
+          {location?.state?.from?.label ?? 'Go Back'}
         </button>
       )}
       {movie && <MovieCard movie={movie} />}
