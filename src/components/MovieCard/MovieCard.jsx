@@ -6,7 +6,10 @@ import {
   AdditionalInfo,
   AdditionalLink,
 } from './MovieCard.styled'
+import Container from '../Container'
 import Loader from '../Loader'
+import noAvailableImg from '../../img/No-Image-Placeholder.svg'
+console.log(noAvailableImg)
 
 // import Cast from '../Cast'
 // import Reviews from '../Reviews'
@@ -21,23 +24,17 @@ const Reviews = lazy(
 
 const MovieCard = ({ movie }) => {
   const { path, url } = useRouteMatch()
-  const match = useRouteMatch()
-  console.log('match', match)
-  console.log('url', url)
   const location = useLocation()
-  console.log(location)
-  //   console.log('url >>', url)
-  //   console.log('path >>', path)
   const score = movie.vote_average * 10
-  // console.log('movie >>', movie)
-  // console.log('score >>', score)
+
+  const posterPath = movie.poster_path
+    ? `https://image.tmdb.org/t/p/w200${movie.poster_path}`
+    : noAvailableImg
+
   return (
-    <>
+    <Container>
       <CardContainer>
-        <img
-          src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
-          alt=""
-        ></img>
+        <img src={posterPath} alt=""></img>
         <Description>
           <h2>{movie.title}</h2>
           <h3>User score:</h3>
@@ -90,7 +87,7 @@ const MovieCard = ({ movie }) => {
           </Route>
         </Switch>
       </Suspense>
-    </>
+    </Container>
   )
 }
 export default MovieCard

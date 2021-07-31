@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-// import { useRouteMatch } from 'react-router'
+import { List, Item } from './Reviews.styled'
 import axios from 'axios'
 axios.defaults.baseURL = 'https://api.themoviedb.org/3'
 const API_KEY = '0558fb418099b1d6ef291e53504aa0aa'
@@ -36,19 +36,19 @@ const Reviews = ({ movieId }) => {
 
   return (
     <>
-      <ul>
+      <List>
         {movie.length > 0 ? (
           movie.map(({ id, author, content }) => (
-            <li key={id}>
+            <Item key={id}>
               <h3>{author}</h3>
               <hr />
               <p>{content}</p>
-            </li>
+            </Item>
           ))
         ) : (
           <p> Sorry, we don't have any reviews for this movie</p>
         )}
-      </ul>
+      </List>
     </>
   )
 }

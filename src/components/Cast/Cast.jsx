@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
+import { List, Item, Undertitle, Img } from './Cast.styled'
+import Container from '../Container/Container'
 axios.defaults.baseURL = 'https://api.themoviedb.org/3'
 const API_KEY = '0558fb418099b1d6ef291e53504aa0aa'
 
@@ -42,19 +44,19 @@ const Cast = ({ movieId }) => {
 
   return (
     <>
-      <ul>
+      <List>
         {movie &&
           movie.cast.map(({ id, name, profile_path, character }) => (
-            <li key={id}>
-              <img
+            <Item key={id}>
+              <Img
                 src={`https://image.tmdb.org/t/p/w200${profile_path}`}
                 alt={name}
-              ></img>
+              ></Img>
               <h3>{name}</h3>
-              <p>Character: {character}</p>
-            </li>
+              <Undertitle>Character: {character}</Undertitle>
+            </Item>
           ))}
-      </ul>
+      </List>
     </>
   )
 }

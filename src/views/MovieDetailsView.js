@@ -25,7 +25,7 @@ const MovieDetailsView = () => {
     //history.push(location.state.from)
     //return
     // } return history.push('/')
-    history.push(location?.state?.from?.location ?? '/')
+    history.push(location?.state?.from ?? '/')
   }
 
   const fetchID = async () => {
@@ -54,7 +54,7 @@ const MovieDetailsView = () => {
 
   return (
     <>
-      <h1>Movie Details {movieId}</h1>
+      {/* <h1>Movie Details {movieId}</h1> */}
       {movie && (
         <button type="button" onClick={onGoBack}>
           {location?.state?.from?.label ?? 'Go Back'}
