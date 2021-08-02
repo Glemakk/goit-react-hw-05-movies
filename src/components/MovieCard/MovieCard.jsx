@@ -5,6 +5,7 @@ import {
   Description,
   AdditionalInfo,
   AdditionalLink,
+  ItemImg,
 } from './MovieCard.styled'
 import Container from '../Container'
 import Loader from '../Loader'
@@ -28,13 +29,13 @@ const MovieCard = ({ movie }) => {
   const score = movie.vote_average * 10
 
   const posterPath = movie.poster_path
-    ? `https://image.tmdb.org/t/p/w200${movie.poster_path}`
+    ? `https://image.tmdb.org/t/p/w400${movie.poster_path}`
     : noAvailableImg
 
   return (
     <Container>
       <CardContainer>
-        <img src={posterPath} alt=""></img>
+        <ItemImg src={posterPath} alt=""></ItemImg>
         <Description>
           <h2>{movie.title}</h2>
           <h3>User score:</h3>

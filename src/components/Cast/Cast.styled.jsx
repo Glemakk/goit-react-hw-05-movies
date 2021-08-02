@@ -1,6 +1,8 @@
 import styled from '@emotion/styled'
 
 export const List = styled.ul`
+  background-color: #1b0d0d1f;
+  border-radius: 3px;
   display: flex;
   flex-wrap: wrap;
   margin-left: -10px;

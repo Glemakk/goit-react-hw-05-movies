@@ -8,7 +8,7 @@ export const SearchContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 64px;
+  min-height: 50px;
   padding-right: 24px;
   padding-left: 24px;
   padding-top: 12px;
@@ -32,7 +32,7 @@ export const Form = styled.form`
 export const SearchButton = styled.button`
   display: inline-block;
   width: 48px;
-  height: 48px;
+  height: 35px;
   border: 0;
   background-image: url('https://image.flaticon.com/icons/svg/149/149852.svg');
   background-size: 40%;

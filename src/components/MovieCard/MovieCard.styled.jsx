@@ -26,12 +26,17 @@ export const AdditionalLink = styled(NavLink)`
   }
 `
 export const ItemImg = styled.img`
-  width: 100%;
-  height: 260px;
-  object-fit: cover;
+  // width: 100%;
+  // height: 260px;
+  // object-fit: cover;
+  border-radius: 5px;
+  margin-top: 10px;
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
   &:hover {
     transform: scale(1.03);
     cursor: zoom-in;
   }
+`
+export const BtnGoBack = styled.button`
+  margin-top: 10px;
 `

@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 // import { toast } from 'react-toastify'
 import * as movieBundleApi from '../services/movieBundle-api'
 import MovieCard from '../components/MovieCard'
+import { BtnGoBack } from '../components/MovieCard/MovieCard.styled'
 
 const MovieDetailsView = () => {
   const history = useHistory()
@@ -56,9 +57,9 @@ const MovieDetailsView = () => {
     <>
       {/* <h1>Movie Details {movieId}</h1> */}
       {movie && (
-        <button type="button" onClick={onGoBack}>
+        <BtnGoBack type="button" onClick={onGoBack}>
           {location?.state?.from?.label ?? 'Go Back'}
-        </button>
+        </BtnGoBack>
       )}
       {movie && <MovieCard movie={movie} />}
 
